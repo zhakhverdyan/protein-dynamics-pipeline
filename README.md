@@ -26,8 +26,7 @@ summary statistics eliminating outliers, fitting a linear regression
 model to time-course data and evaluating the goodness of fit. A sample
 analysis is plotted below.
 
-![](media/image1.png){width="3.995929571303587in"
-height="3.5677963692038497in"}
+![](Images/exchange_fits.png)
 
 **Main findings**
 
@@ -37,8 +36,7 @@ others are promiscuous and rapidly change hands (or nuclear pore
 complexes as it were). Below is a heatmap of the relative mobility of
 building blocks within the nuclear pore complex structure.
 
-![](media/image2.png){width="3.060246062992126in"
-height="2.2457622484689415in"}
+![](Images/npc_map.png)
 
 So, what happens if one of those stable building blocks is damaged? To
 our amazement, we discovered that those subunits can be (forcefully)
