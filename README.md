@@ -4,7 +4,7 @@
 
 Keeping the cells in our bodies ticking along is the task of tiny
 molecular machines, mostly composed of proteins. Take the nuclear pore
-complex, for example. This nanomachine sits in the nucleus of every
+complex, for example. This nanomachine sits in the nuclear membrane of every
 cell. Well, every cell that has a nucleus, that is. DNA, the genetic
 blueprint of our very own being, is stored in the nucleus. It sounds
 like an important place to protect, isn\'t it? That is exactly what the
@@ -26,7 +26,7 @@ summary statistics eliminating outliers, fitting a linear regression
 model to time-course data and evaluating the goodness of fit. A sample
 analysis is plotted below.
 
-![](Images/exchange_fits.png)
+<img src="Images/exchange_fits.png" width="500">
 
 **Main findings**
 
@@ -36,7 +36,7 @@ others are promiscuous and rapidly change hands (or nuclear pore
 complexes as it were). Below is a heatmap of the relative mobility of
 building blocks within the nuclear pore complex structure.
 
-![](Images/npc_map.png)
+<img src="Images/npc_map.png" width="500">
 
 So, what happens if one of those stable building blocks is damaged? To
 our amazement, we discovered that those subunits can be (forcefully)
