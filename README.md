@@ -3,19 +3,19 @@ This repo accompanies the publication "Protein dynamics quantification" in cell 
 Protein_analysis_pipeline.py file provides step by step description of the procedure with inline comments.
 
 1. clone the protein-dynamics-pipeline repository
-```git clone https://github.com/zhakhverdyan/protein-dynamics-pipeline.git```
+```git clone https://github.com/zhakhverdyan/protein-dynamics-pipeline.git```<br>
 
 2. Create and activate an environment with conda
-```conda create conda env create -f environment.yml```
-```conda activate protein-dynamics-pipeline```
+```conda create conda env create -f environment.yml```<br>
+```conda activate protein-dynamics-pipeline```<br>
 
 * Note alternatively, pip/conda install scipy>=1.6 and matplotlib>=3.3
 3. Prepare data, sample files are provided for testing
-	a. Place the evidence.txt file resulting from Maxquant run into data_in folder
-	b. Place the orf_trans.fasta (or alternative pasta file with the proteome of the organism into data_in folder
-	c. Prepare a json file with two input arguments: 1. key = "time", value = [list of timepoints in hours], 2. key = "keywords", value = [list of keywords used to pull proteins of interest].
+	a. Place the evidence.txt file resulting from Maxquant run into data_in folder<br>
+	b. Place the orf_trans.fasta (or alternative pasta file with the proteome of the organism into data_in folder<br>
+	c. Prepare a json file with two input arguments: 1. key = "time", value = list of timepoints in hours, 2. key = "keywords", value = list of keywords used to pull proteins of interest.<br>
 4. Run the protein_analysis_pipeline.py script with two input arguments: the evidence.txt file and arguments.json file
-```./protein_analysis_pipeline.py data_in/evidence.txt data_in/arguments.json```
+```./protein_analysis_pipeline.py data_in/evidence.txt data_in/arguments.json```<br>
 5. Analyze the output in data_out folder:
 * Excluded - contains data excluded from analysis at various stages, e.g, no lysine, not enough peptides, poor fit, etc. see protein_analysis_pipeline.py for detailed description
 * Intermediate - contains two files: evidence_analyzed.txt - all peptides that made it into analysis, evidence_final_analysis.txt - all protein timepoints data collated
