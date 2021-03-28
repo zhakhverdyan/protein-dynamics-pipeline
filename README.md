@@ -2,8 +2,9 @@
 This repo accompanies the publication "Protein dynamics quantification" in cell protocols. The two objectives are to organize the heavy label quantification values produced by Maxquant and fit the time course data to estimate the apparent exchange/turnover rates of proteins of interest.
 Protein_analysis_pipeline.py file provides step by step description of the procedure with inline comments.
 
-1. clone the protein-dynamics-pipeline repository<br>
+1. clone the protein-dynamics-pipeline repository and go into the directory<br>
 ```git clone https://github.com/zhakhverdyan/protein-dynamics-pipeline.git```<br>
+```cd protein-dynamics-pipeline```<br>
 
 2. Create and activate an environment with conda<br>
 ```conda create conda env create -f environment.yml```<br>
