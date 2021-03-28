@@ -1,0 +1,1 @@
+Protein systematic name	Common name	Description	Average 1	Average 2	Average 3	Average 4	Average 5	Standard deviation 1	Standard deviation 2	Standard deviation 3	Standard deviation 4	Standard deviation 5	Slope	Intercept	r value	p value	std err	Ave uniqiue peptides	Ave MS/MS count	Time point filtered

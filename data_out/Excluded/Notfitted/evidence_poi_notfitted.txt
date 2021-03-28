@@ -1,0 +1,1 @@
+Protein systematic name	Common name	Description	Time points	Ave unique peptide	Ave MS/MS count
