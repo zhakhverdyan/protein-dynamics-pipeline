@@ -52,8 +52,6 @@ as dependednt variable:
 different colors for visual inspection. All the files are organized in new folders: MaxQuant, data_out, 
 data_out/Assigned, data_out/Excluded, data_out/Graphs, data_out/Intermediate."""
 
-from datetime import datetime
-#startTime = datetime.now()
 import sys
 import Stat_analysis_final_log
 import os
@@ -77,14 +75,12 @@ file_name = file_name.split('.txt')[0]
 # be stored, which is based on the original file name
 filt_name = file_name + '_filtered_out'
 analyz_name = file_name + '_analyzed'
-col_data = file_name+'_collated'
 
 # now create writable text files with all of the names
 filt = open('data_out/'+filt_name+'.txt', 'w') # the data that cannot be used (e.g. contaminant, reverse or
 # no K peptides) will be stored here
-analyzed = open('data_out/'+analyz_name+'.txt', 'w') #d ata that will go into analysis will be written here
+analyzed = open('data_out/'+analyz_name+'.txt', 'w') #data that will go into analysis will be written here
 # with an aditional column Ratio H/(H+L) that will be calculated from Ratio H/L
-collated = open('data_out/'+col_data+'.txt', 'w') # protein data from different timepoints will be collated here
 
 # gets the first line, column headers
 first_line = f.readline()
@@ -500,20 +496,22 @@ ave_param=np.mean(params)
 std_param=np.std(params)
 y=ave_param*x
 plt.plot(x,y,'black', label='Average', lw=1)
+
 ave_minus=ave_param-2*std_param
 y1=ave_minus*x
 plt.plot(x,y1,'black', label='Average +/- 2 st dev', lw=1, linestyle='dashed')
 ave_plus=ave_param+2*std_param
 y2=ave_plus*x
 plt.plot(x,y2,'black', lw=1, linestyle='dashed')
+# y_min = min(y1) - 0.5
+# y_max = 0
+# plt.ylim(y_min, y_max)
 
 plt.xlabel('Time (h)', fontsize=20)
 plt.ylabel('Log(H/(H+L))',fontsize=20)
 plt.title(file_name+' time course\n', fontsize=24) # this is either turnover or exchange time-course
 plt.xticks(np.arange(0, max(t)+1, 1), fontsize=18)
 plt.xlim(0,t[-1]+0.5)
-plt.yticks(np.arange(-5,0,1), fontsize=18)
-plt.ylim(-5,0)
 plt.box('off')
 plt.tick_params(
     axis='x',          
@@ -588,6 +586,3 @@ for f in listOfFiles:
     elif re.search("lowconfidence",f):
         fullPath = src + "/" + f
         os.system ("mv"+ " " + fullPath + " " + dst7)
-
-
-#print(datetime.now() - startTime)  

@@ -1,0 +1,7 @@
+name: protein-dynamics-pipeline
+channels:
+  - defaults
+dependencies:
+  - matplotlib=3.3
+  - scipy=1.6
+prefix: /Users/zhannahakhverdyan/opt/anaconda3/envs/protein-dynamics-pipeline

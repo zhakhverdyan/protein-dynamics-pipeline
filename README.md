@@ -1,53 +1,23 @@
-**Protein analysis pipeline for studying molecular machines**
+# Procedure
+This repo accompanies the publication "Protein dynamics quantification" in cell protocols. The two objectives are to organize the heavy label quantification values produced by Maxquant and fit the time course data to estimate the apparent exchange/turnover rates of proteins of interest.
+Protein_analysis_pipeline.py file provides step by step description of the procedure with inline comments.
 
-**Motivation and background**
+1. clone the protein-dynamics-pipeline repository
+```git clone https://github.com/zhakhverdyan/protein-dynamics-pipeline.git```
 
-Keeping the cells in our bodies ticking along is the task of tiny
-molecular machines, mostly composed of proteins. Take the nuclear pore
-complex, for example. This nanomachine sits in the nuclear membrane of every
-cell. Well, every cell that has a nucleus, that is. DNA, the genetic
-blueprint of our very own being, is stored in the nucleus. It sounds
-like an important place to protect, isn\'t it? That is exactly what the
-nuclear pore complex does! It is the gatekeeper that ensures selective
-passage of "authorized worker" molecules in and out of the nucleus. 
+2. Create and activate an environment with conda
+```conda create conda env create -f environment.yml```
+```conda activate protein-dynamics-pipeline```
 
-The goal of my thesis project was to engineer a novel approach for
-studying the composition of the nuclear pore complex. Many years, blood,
-sweat, and tears later I (with help of amazing colleagues and mentors)
-worked out the cell biology, genetics, biochemistry, and mass
-spectrometry experiments necessary to gather the required data... Only
-to discover that the amount of data exceeded my capacity to analyze it
-manually. That is when I discovered Python. Now I don't remember ever
-analyzing data without it:)
-
-The protein analysis pipeline published here automates the analysis of
-mass spectrometry data, including filtering contaminants, calculating
-summary statistics eliminating outliers, fitting a linear regression
-model to time-course data and evaluating the goodness of fit. A sample
-analysis is plotted below.
-
-<img src="Images/exchange_fits.png" width="500">
-
-**Main findings**
-
-The study identified a whole range of building block mobility: some are
-permanent residents and rarely leave the nuclear pore complex, while
-others are promiscuous and rapidly change hands (or nuclear pore
-complexes as it were). Below is a heatmap of the relative mobility of
-building blocks within the nuclear pore complex structure.
-
-<img src="Images/npc_map.png" width="500">
-
-So, what happens if one of those stable building blocks is damaged? To
-our amazement, we discovered that those subunits can be (forcefully)
-removed by another molecular machine, the proteasome. Moreover, the
-resulting gap is slowly but surely filled with fresh building blocks.
-That is an essential resilience mechanism for a macromolecular machine
-performing as crucial a task as guarding our genetic information.
-
-If you would like to read the whole process here is a link to my thesis:
-
-https://digitalcommons.rockefeller.edu/student\_theses\_and\_dissertations/301/
-
-My work has also been turned into a manuscript (unpublished figures
-presented here); I will provide a link as soon as the work is published.
+* Note alternatively, pip/conda install scipy>=1.6 and matplotlib>=3.3
+3. Prepare data, sample files are provided for testing
+	a. Place the evidence.txt file resulting from Maxquant run into data_in folder
+	b. Place the orf_trans.fasta (or alternative pasta file with the proteome of the organism into data_in folder
+	c. Prepare a json file with two input arguments: 1. key = "time", value = [list of timepoints in hours], 2. key = "keywords", value = [list of keywords used to pull proteins of interest].
+4. Run the protein_analysis_pipeline.py script with two input arguments: the evidence.txt file and arguments.json file
+```./protein_analysis_pipeline.py data_in/evidence.txt data_in/arguments.json```
+5. Analyze the output in data_out folder:
+* Excluded - contains data excluded from analysis at various stages, e.g, no lysine, not enough peptides, poor fit, etc. see protein_analysis_pipeline.py for detailed description
+* Intermediate - contains two files: evidence_analyzed.txt - all peptides that made it into analysis, evidence_final_analysis.txt - all protein timepoints data collated
+* Assigned - contains two files - evidence_poi_grouped.txt - summary of time point measurements and linear regression fit values for proteins of interest, evidence_other_grouped.txt - summary of time point measurements and linear regression fit values for all other proteins
+* Graphs - graph of timepoints measurements and fitted curves for protein of interest (from evidence_poi_grouped.txt); the 3 diagonals are average +/- 2 standard deviations of the baseline protein fitted values (from evidence_other_grouped.txt). This graph can be used to quickly assess the data, e.g. the further away fitted curves are from the baseline, the slower the exchange of the protein of interest
