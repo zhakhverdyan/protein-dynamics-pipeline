@@ -53,7 +53,7 @@ different colors for visual inspection. All the files are organized in new folde
 data_out/Assigned, data_out/Excluded, data_out/Graphs, data_out/Intermediate."""
 
 import sys
-import Stat_analysis_final_log
+import stat_analysis_final_log
 import os
 import numpy as np
 from scipy import stats
@@ -186,7 +186,7 @@ for files in sorted(raw_files):
         else:
             proteins[entries[i2]].append(line)
     for protein in proteins:
-        l=Stat_analysis_final_log.stat_analysis(proteins[protein])
+        l=stat_analysis_final_log.stat_analysis(proteins[protein])
         f1.write(protein+'\t')
         f1.write(str(l[0])+'\t'+str(l[1])+'\t'+str(l[2][0])+'\t'+str(l[2][1])+'\n')
     f1.close()
@@ -503,9 +503,6 @@ plt.plot(x,y1,'black', label='Average +/- 2 st dev', lw=1, linestyle='dashed')
 ave_plus=ave_param+2*std_param
 y2=ave_plus*x
 plt.plot(x,y2,'black', lw=1, linestyle='dashed')
-# y_min = min(y1) - 0.5
-# y_max = 0
-# plt.ylim(y_min, y_max)
 
 plt.xlabel('Time (h)', fontsize=20)
 plt.ylabel('Log(H/(H+L))',fontsize=20)
