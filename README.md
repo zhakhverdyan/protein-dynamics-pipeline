@@ -13,7 +13,7 @@ Protein_analysis_pipeline.py file provides step by step description of the proce
 * Note alternatively, pip/conda install scipy>=1.6 and matplotlib>=3.3
 3. Prepare data, sample files are provided for testing:<br>
 	a. Place the evidence.txt file resulting from Maxquant run into data_in folder<br>
-	b. Place the orf_trans.fasta (or alternative pasta file with the proteome of the organism into data_in folder<br>
+	b. Place the orf_trans.fasta (or alternative FASTA file with the proteome of the organism into data_in folder<br>
 	c. Prepare a json file with two input arguments: 1. key = "time", value = list of timepoints in hours, 2. key = "keywords", value = list of keywords used to pull proteins of interest.<br>
 4. Run the protein_analysis_pipeline.py script with two input arguments: the evidence.txt file and arguments.json file<br>
 ```./protein_analysis_pipeline.py data_in/evidence.txt data_in/arguments.json```<br>
