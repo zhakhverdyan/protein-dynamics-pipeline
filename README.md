@@ -1,5 +1,5 @@
 # Procedure
-This repo accompanies the publication "Measuring Protein Complex Dynamics in Yeast" in STAR protocol. The two objectives are to organize the heavy label quantification values produced by Maxquant and fit the time course data to estimate the apparent exchange/turnover rates of proteins of interest.
+This repo accompanies the publication "Measuring Dynamics of Proteins within Macromolecular Assemblies" in STAR protocol. The two objectives are to organize the heavy label quantification values produced by Maxquant and fit the time course data to estimate the apparent exchange/turnover rates of proteins of interest.
 Protein_analysis_pipeline.py file provides step by step description of the procedure with inline comments.
 
 1. clone the protein-dynamics-pipeline repository and go into the directory<br>
